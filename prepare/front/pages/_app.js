@@ -1,0 +1,23 @@
+//_app.jss는 pages폴더의 공통 컴포넌트이다
+import PropTypes from 'prop-types';
+import Head from 'next/head';
+import 'antd/dist/antd.css'
+
+const App = ({ Component }) => {
+    return (
+        <>
+            <Head>
+                <meta charSet='utf-8' />
+                <title>ZoMbird</title>
+            </Head>
+            <Component />
+        </>
+        
+    );
+};
+
+App.propTypes = {
+    Component: PropTypes.elementType.isRequired,
+};
+
+export default App;
