@@ -4,6 +4,8 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import propTypes from 'prop-types';
 
+import useinput from "../hooks/useinput";
+
 /* import { useMemo } from 'react';
    const style = useMemo(() => ({marginTop: 10}), []);
    <div style={ style }>
@@ -19,15 +21,9 @@ const FormWrapper = styled(Form)`
 `;
 
 const LoginForm = ({ setIsLoggedIn }) => {
-    const [id, setId] = useState('');
-    const onChangeId = useCallback((e) => {
-        setId(e.target.value);
-    }, []);
+    const [id, onChangeId] = useinput('');
 
-    const [password, setPassword] = useState('');
-    const onChangePassword = useCallback((e) => {
-        setPassword(e.target.value);
-    }, []);
+    const [password, onChangePassword] = useinput('');
 
     //onFinish는 event.preventDefault()대신하며 submit 기본동작에 새로고침을 멈추게 한다.
     const onSubmitForm = useCallback(() => {
