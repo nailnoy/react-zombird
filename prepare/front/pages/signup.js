@@ -27,8 +27,8 @@ const Signup = () => {
     const [term, setTerm] = useState('');
     const [termError, setTermError] = useState(false);
     const onChangeTerm = useCallback((e) => {
-        setTermError(false);
         setTerm(e.target.checked);
+        setTermError(false);
       }, []);
 
     const onSubmit = useCallback(() => {

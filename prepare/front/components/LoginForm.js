@@ -2,9 +2,10 @@ import { useState, useCallback } from 'react';
 import { Form, Input, Button } from 'antd';
 import Link from 'next/link'; 
 import styled from 'styled-components';
-import propTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 
 import useinput from "../hooks/useinput";
+import { loginAction } from '../reducers/user';
 
 /* import { useMemo } from 'react';
    const style = useMemo(() => ({marginTop: 10}), []);
@@ -20,15 +21,15 @@ const FormWrapper = styled(Form)`
     padding: 10px; 
 `;
 
-const LoginForm = ({ setIsLoggedIn }) => {
+const LoginForm = () => {
+    const dispatch = useDispatch();
     const [id, onChangeId] = useinput('');
-
     const [password, onChangePassword] = useinput('');
 
     //onFinish는 event.preventDefault()대신하며 submit 기본동작에 새로고침을 멈추게 한다.
     const onSubmitForm = useCallback(() => {
         console.log(id, password);
-        setIsLoggedIn(true);
+        dispatch(loginAction(id, password));
     }, [id, password]);
 
     return (
@@ -55,9 +56,5 @@ const LoginForm = ({ setIsLoggedIn }) => {
         </FormWrapper>
     );
 };
-
-LoginForm.propTypes = {
-    setIsLoggedIn: propTypes.func.isRequired,
-}
 
 export default LoginForm ;

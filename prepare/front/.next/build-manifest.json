@@ -30,11 +30,6 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/about/zomd": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/about/zomd.js"
-    ],
     "/profile": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
